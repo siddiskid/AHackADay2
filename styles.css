@@ -1,0 +1,116 @@
+@font-face {
+  font-family: "aest";
+  src: url("fonts/Yellowtail-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "aest1";
+  src: url("fonts/Sora-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "aest2";
+  src: url("fonts/Inter-Regular.ttf") format("truetype");
+}
+
+.main {
+  width: 100%;
+  height: 400px;
+}
+
+.photo {
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+}
+
+.maincontent {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+}
+
+body {
+  font-family: "aest2";
+  background-image: url("images/hand-drawn-minimal-background_23-2149006548.webp");
+}
+
+.right {
+  margin: 0;
+  position: absolute;
+  top: 5%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  margin: 0;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.hospitals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.hospitalsintro {
+  margin-left: 20px;
+}
+.clinicintro {
+  margin-left: 20px;
+}
+.pharmacyintro {
+  margin-left: 20px;
+}
+.Blocks {
+  font-size: 15px;
+  width: 250px;
+  height: 200px;
+  padding: 20px;
+  margin: 20px;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.first {
+  padding: 5px;
+  color: #314584;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: #6e757a;
+}
+
+.second {
+  padding: 5px;
+  font-size: 18px;
+  color: #6e757a;
+}
+
+.secondlast {
+  padding: 5px;
+  font-size: 18px;
+  color: #6e757a;
+}
+
+.last {
+  padding: 5px;
+  color: black;
+}
