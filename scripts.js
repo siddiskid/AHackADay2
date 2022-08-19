@@ -126,18 +126,18 @@ fetch(apiparam3, requestOptions)
       add.classList.add("second");
       var dist = document.createElement("div");
       dist.classList.add("secondlast");
-      var app = document.createElement("a");
-      app.classList.add("last");
-      var linktext = document.createTextNode("Book an appointment");
+      // var app = document.createElement("a");
+      // app.classList.add("last");
+      // var linktext = document.createTextNode("Book an appointment");
       a.innerHTML = ab.features[i].properties.name;
       add.innerHTML = ab.features[i].properties.address_line2;
       dist.innerHTML = ab.features[i].properties.distance.toString() + "m away";
-      app.appendChild(linktext);
-      app.href = "#";
+      // app.appendChild(linktext);
+      // app.href = "#";
       massiveBlock.appendChild(a);
       massiveBlock.appendChild(add);
       massiveBlock.appendChild(dist);
-      massiveBlock.appendChild(app);
+      // massiveBlock.appendChild(app);
       document.getElementById("pharmacies").appendChild(massiveBlock);
     }
   })
