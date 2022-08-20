@@ -132,7 +132,8 @@ function addAppointments(
   specialistt,
   timee,
   uidd,
-  addd
+  addd,
+  codee
 ) {
   try {
     const docRef = addDoc(collection(db, "appointments"), {
@@ -149,9 +150,24 @@ function addAppointments(
       Address: addd,
     });
     console.log("Document written with ID: ", docRef.id);
+    
   } catch (e) {
     console.error("Error adding document: ", e);
   }
+  const codeUri = encodeURIComponent(codee)
+  const hospitalUri = encodeURIComponent(hospitall)
+  const timeUri = encodeURIComponent(timee)
+  const specialistUri = encodeURIComponent(specialistt)
+  const addressUri = encodeURIComponent(addd)
+  const phoneUri = encodeURIComponent(mobilenoo)
+  const nameUri = encodeURIComponent(namee)
+  const twilioRes = fetch(`https://ahad-pradipraj.netlify.app/.netlify/functions/api/sendMessage?to=${codeUri}${phoneUri}&name=${nameUri}&code=${codeUri}&hospital=${hospitalUri}&time=${timeUri}&specialist=${specialistUri}&address=${addressUri}`,{
+  method: 'GET',
+  mode: 'no-cors',
+  })
+    .then(res => res.json())
+    .catch(err => console.log(err));
+    console.log(twilioRes);
 }
 
 document.getElementById("final").onclick = () => {
@@ -167,6 +183,7 @@ document.getElementById("final").onclick = () => {
   var age1 = document.getElementById("ageee").value;
   var email1 = document.getElementById("emailll").value;
   var phone1 = document.getElementById("phoneee").value;
+  var code1 = document.getElementById("codeee").value;
   var temp2 = document.getElementById("hospitalselect").value;
   var hospital1 = " ";
   if (temp2 !== "other2") {
@@ -189,6 +206,7 @@ document.getElementById("final").onclick = () => {
     specialist1,
     time1,
     uid1,
-    add1
+    add1,
+    code1
   );
 };
