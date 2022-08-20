@@ -59,6 +59,8 @@ function signIn() {
     document.getElementById("loginprompt").style.display = "none";
     document.getElementById("maincontent").style.display = "none";
     document.getElementById("photo").style.display = "none";
+    document.getElementById("exploretext").style.display = "block";
+    document.getElementById("contentbuttons").style.display = "block";
     getAppointments(uid11);
   });
 }
@@ -72,6 +74,8 @@ function signOutt() {
     document.getElementById("loginprompt").style.display = "block";
     document.getElementById("maincontent").style.display = "block";
     document.getElementById("photo").style.display = "block";
+    document.getElementById("exploretext").style.display = "none";
+    document.getElementById("contentbuttons").style.display = "none";
   });
 }
 
@@ -126,6 +130,10 @@ document.getElementById("login").onclick = () => {
   signIn();
 };
 
+document.getElementById("loginbutton2").onclick = () => {
+  signIn();
+};
+
 document.getElementById("logout").onclick = () => {
   signOutt();
 };
@@ -138,6 +146,10 @@ let apiparam2 =
   "https://api.geoapify.com/v2/places?categories=healthcare.clinic_or_praxis&bias=proximity:77.6667136,12.910592&limit=3&apiKey=6211193b5dfd4c76b3a7889d3fa560d1 ";
 let apiparam3 =
   "https://api.geoapify.com/v2/places?categories=healthcare.pharmacy&bias=proximity:77.6667136,12.910592&limit=2&apiKey=6211193b5dfd4c76b3a7889d3fa560d1 ";
+let apiparam4 =
+  "https://api.geoapify.com/v2/places?categories=healthcare.clinic_or_praxis.psychiatry&bias=proximity:77.6667136,12.910592&limit=20&apiKey=6211193b5dfd4c76b3a7889d3fa560d1";
+let apiparam5 =
+  "https://api.geoapify.com/v2/places?categories=building.sport&bias=proximity:77.6667136,12.910592&limit=3&apiKey=6211193b5dfd4c76b3a7889d3fa560d1";
 
 var requestOptions = {
   method: "GET",
@@ -238,3 +250,99 @@ fetch(apiparam3, requestOptions)
     }
   })
   .catch((error) => console.log("error", error));
+
+fetch(apiparam4, requestOptions)
+  .then((response) => response.json())
+  .then(function (result) {
+    ab = result;
+    // console.log(ab);
+    // console.log(ab.features[0].properties);
+    for (let i = 0; i < ab.features.length; i++) {
+      var massiveBlock = document.createElement("div");
+      massiveBlock.classList.add("Blocks");
+      var a = document.createElement("div");
+      a.classList.add("first");
+      var add = document.createElement("div");
+      add.classList.add("second");
+      var dist = document.createElement("div");
+      dist.classList.add("secondlast");
+      var app = document.createElement("a");
+      app.classList.add("last");
+      var linktext = document.createTextNode("Book an appointment");
+      a.innerHTML = ab.features[i].properties.name;
+      add.innerHTML = ab.features[i].properties.address_line2;
+      dist.innerHTML = ab.features[i].properties.distance.toString() + "m away";
+      app.appendChild(linktext);
+      app.href = "patient_form.html";
+      massiveBlock.appendChild(a);
+      massiveBlock.appendChild(add);
+      massiveBlock.appendChild(dist);
+      massiveBlock.appendChild(app);
+      document.getElementById("psycs").appendChild(massiveBlock);
+    }
+  })
+  .catch((error) => console.log("error", error));
+
+fetch(apiparam5, requestOptions)
+  .then((response) => response.json())
+  .then(function (result) {
+    ab = result;
+    // console.log(ab);
+    // console.log(ab.features[0].properties);
+    for (let i = 0; i < ab.features.length; i++) {
+      var massiveBlock = document.createElement("div");
+      massiveBlock.classList.add("Blocks");
+      var a = document.createElement("div");
+      a.classList.add("first");
+      var add = document.createElement("div");
+      add.classList.add("second");
+      var dist = document.createElement("div");
+      dist.classList.add("secondlast");
+      var app = document.createElement("a");
+      app.classList.add("last");
+      var linktext = document.createTextNode("Book an appointment");
+      a.innerHTML = ab.features[i].properties.name;
+      add.innerHTML = ab.features[i].properties.address_line2;
+      dist.innerHTML = ab.features[i].properties.distance.toString() + "m away";
+      app.appendChild(linktext);
+      app.href = "patient_form.html";
+      massiveBlock.appendChild(a);
+      massiveBlock.appendChild(add);
+      massiveBlock.appendChild(dist);
+      massiveBlock.appendChild(app);
+      document.getElementById("fitness").appendChild(massiveBlock);
+    }
+  })
+  .catch((error) => console.log("error", error));
+
+document.getElementById("showapp").onclick = () => {
+  if (document.getElementById("appointments").style.display === "flex") {
+    document.getElementById("appointments").style.display = "none";
+  } else {
+    document.getElementById("appointments").style.display = "flex";
+  }
+};
+
+document.getElementById("hospitalbutton").onclick = () => {
+  if (document.getElementById("massivehospitals").style.display === "block") {
+    document.getElementById("massivehospitals").style.display = "none";
+  } else {
+    document.getElementById("massivehospitals").style.display = "block";
+  }
+};
+
+document.getElementById("psycbutton").onclick = () => {
+  if (document.getElementById("massivemhealth").style.display === "block") {
+    document.getElementById("massivemhealth").style.display = "none";
+  } else {
+    document.getElementById("massivemhealth").style.display = "block";
+  }
+};
+
+document.getElementById("fitnessbutton").onclick = () => {
+  if (document.getElementById("massivefitness").style.display === "block") {
+    document.getElementById("massivefitness").style.display = "none";
+  } else {
+    document.getElementById("massivefitness").style.display = "block";
+  }
+};

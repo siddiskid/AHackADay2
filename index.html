@@ -23,12 +23,20 @@
       </div>
       <div class="main">
         <div class="welcomeuser" id="welcomeuser"></div>
+        <div class="exploretext" id="exploretext">
+          What do you want to explore today
+        </div>
+        <div class="contentbuttons" id="contentbuttons">
+          <button class="hospitalbutton" id="hospitalbutton">Hospitals</button>
+          <button class="psycbutton" id="psycbutton">Mental Health</button>
+          <button class="fitnessbutton" id="fitnessbutton">Fitness</button>
+        </div>
         <div class="maincontent" id="maincontent">
           Everything about your health and wellness, <br />
           in one place
         </div>
         <div class="loginprompt" id="loginprompt">
-          <button class="loginbutton2" id="login" onclick="signIn()">
+          <button class="loginbutton2" id="loginbutton2">
             Login to get started
           </button>
         </div>
@@ -37,22 +45,37 @@
       </div>
       <div class="onlyshowtologin" id="onlyshowtologin">
         <div class="bigappointments" id="bigappointments">
-          <div class="appointmentsintro">Your appointments</div>
+          <div class="appointmentsintro">
+            Your appointments
+            <a id="showapp"><img class="dropimg" src="images/drop.png" /></a>
+          </div>
           <div class="appointments" id="appointments"></div>
         </div>
-        <div class="'bighospitals">
-          <div class="hospitalsintro">Hospitals near you</div>
-          <div id="hospitals" class="hospitals"></div>
-        </div>
+        <div class="massivehospitals" id="massivehospitals">
+          <div class="'bighospitals">
+            <div class="hospitalsintro">Hospitals near you</div>
+            <div id="hospitals" class="hospitals"></div>
+          </div>
 
-        <div class="'bigclinic">
-          <div class="clinicintro">Clinics near you</div>
-          <div id="clinics" class="hospitals"></div>
-        </div>
+          <div class="'bigclinic">
+            <div class="clinicintro">Clinics near you</div>
+            <div id="clinics" class="hospitals"></div>
+          </div>
 
-        <div class="bigpharmacy">
-          <div class="pharmacyintro">Pharmacies near you</div>
-          <div id="pharmacies" class="hospitals"></div>
+          <div class="bigpharmacy">
+            <div class="pharmacyintro">Pharmacies near you</div>
+            <div id="pharmacies" class="hospitals"></div>
+          </div>
+        </div>
+        <div class="massivemhealth" id="massivemhealth">
+          <div class="psycintro" id="psycintro">Psychiatrists near you</div>
+          <div class="psycs" id="psycs"></div>
+        </div>
+        <div class="massivefitness" id="massivefitness">
+          <div class="fitnessintro" id="fitnessintro">
+            Fitness centres near you
+          </div>
+          <div class="fitness" id="fitness"></div>
         </div>
       </div>
     </div>

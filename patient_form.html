@@ -79,10 +79,13 @@
                                 <input type="tetx" id="phoneee" placeholder="Please enter your mobile number"
                                     class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
                     </div>
-                          <div class="mt-4 mb-2">
-                            <label class="block">Hospital<label>
+                    
+
+
+                        <div class="mt-4 mb-2">
+                            <label class="block">Type<label>
                         </div>
-                        <select id="hospitalselect" class="form-select form-select-lg mb-3
+                        <select id="typeselect" class="form-select form-select-lg mb-3
                                 appearance-none
                                 block
                                 w-full
@@ -97,44 +100,134 @@
                                 transition
                                 ease-in-out
                                 m-0
-                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label=".form-select-lg example" onchange='checkvalue2(this.value)'>
-                                <option selected >Select the hospital</option>
-                                <option id = 'ab1' value="1">abab</option>
-                                <option id  = 'ab2' value="2">baba</option>
-                                <option id = 'ab3' value="3">aac</option>
-                                <option id = 'ab4' value="1">abab</option>
-                                <option id  = 'ab5' value="2">baba</option>
-                                <option id = 'ab6' value="3">aac</option>
-                                <option id = 'abf' value="other2">Other (Please specify name)</option>
-                              </select>                    
-                              <input type = 'text' name = 'hospital' class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" id="other2" style="display:none" />
-                    <div class="mt-4 mb-2">
-                        <label class="block">Type of Specialist<label>
-                    </div>
-                    <select id="specialistselect" class="form-select form-select-lg mb-3
-                            appearance-none
-                            block
-                            w-full
-                            px-4
-                            py-2
-                            text-l
-                            font-normal
-                            text-gray-600
-                            bg-white bg-clip-padding bg-no-repeat
-                            border border-solid border-gray-300
-                            rounded
-                            transition
-                            ease-in-out
-                            m-0
-                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label=".form-select-lg example">
-                            <option selected>Select the type of specialist</option>
-                            <option value="General Physician">General Physician</option>
-                            <option value="Dentist">Dentist</option>
-                            <option value="Dermatologist">Dermatologist</option>
-                            <option value="Gynaecologist">Gynaecologist</option>
-                            <option value="Neurologist">Neurologist</option>
-                            <option value="Pediatrician">Pediatrician</option>
-                          </select>
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label=".form-select-lg example" onchange='checktype(this.value)'>
+                                <option selected >What service do you want to avail</option>
+                                <option value="Hospitals">Hospitals</option>
+                                <option value="Psyc">Mental health</option>
+                                <option value="Fitness">Fitness</option>
+                              </select>                   
+
+
+                              <div class="massiveehospital" id="massiveehospital" style="display:none">
+                                  <div class="mt-4 mb-2">
+                                    <label class="block">Hospital<label>
+                                </div>
+                                <select id="hospitalselect" class="form-select form-select-lg mb-3
+                                        appearance-none
+                                        block
+                                        w-full
+                                        px-4
+                                        py-2
+                                        text-l
+                                        font-normal
+                                        text-gray-600
+                                        bg-white bg-clip-padding bg-no-repeat
+                                        border border-solid border-gray-300
+                                        rounded
+                                        transition
+                                        ease-in-out
+                                        m-0
+                                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label=".form-select-lg example" onchange='checkvalue2(this.value)'>
+                                        <option selected >Select the hospital</option>
+                                        <option id = 'ab1' value="1">abab</option>
+                                        <option id  = 'ab2' value="2">baba</option>
+                                        <option id = 'ab3' value="3">aac</option>
+                                        <option id = 'ab4' value="1">abab</option>
+                                        <option id  = 'ab5' value="2">baba</option>
+                                        <option id = 'ab6' value="3">aac</option>
+                                        <option id = 'abf' value="other2">Other (Please specify name)</option>
+                                      </select>                    
+                                      <input type = 'text' name = 'hospital' class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" id="other2" style="display:none" />
+                            <div class="mt-4 mb-2">
+                                <label class="block">Type of Specialist<label>
+                            </div>
+                            <select id="specialistselect" class="form-select form-select-lg mb-3
+                                    appearance-none
+                                    block
+                                    w-full
+                                    px-4
+                                    py-2
+                                    text-l
+                                    font-normal
+                                    text-gray-600
+                                    bg-white bg-clip-padding bg-no-repeat
+                                    border border-solid border-gray-300
+                                    rounded
+                                    transition
+                                    ease-in-out
+                                    m-0
+                                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label=".form-select-lg example">
+                                    <option selected>Select the type of specialist</option>
+                                    <option value="General Physician">General Physician</option>
+                                    <option value="Dentist">Dentist</option>
+                                    <option value="Dermatologist">Dermatologist</option>
+                                    <option value="Gynaecologist">Gynaecologist</option>
+                                    <option value="Neurologist">Neurologist</option>
+                                    <option value="Pediatrician">Pediatrician</option>
+                                  </select>
+                              </div>
+
+
+
+
+                             <div class="massiveepsyc" id="massiveepsyc" style="display:none">
+                                  <div class="mt-4 mb-2">
+                                    <label class="block">Psychiatrist<label>
+                                </div>
+                                <select id="psycselect" class="form-select form-select-lg mb-3
+                                        appearance-none
+                                        block
+                                        w-full
+                                        px-4
+                                        py-2
+                                        text-l
+                                        font-normal
+                                        text-gray-600
+                                        bg-white bg-clip-padding bg-no-repeat
+                                        border border-solid border-gray-300
+                                        rounded
+                                        transition
+                                        ease-in-out
+                                        m-0
+                                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label=".form-select-lg example" onchange='checkvalue3(this.value)'>
+                                        <option selected >Select a Psychiatrist</option>
+                                        <option id = 'ba1' value="1">abab</option>
+                                        <option id = 'abf' value="other3">Other (Please specify name)</option>
+                                      </select>                    
+                                      <input type = 'text' name = 'hospital' class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" id="other3" style="display:none" />
+                              </div>
+
+                             <div class="massiveefitness" id="massiveefitness" style="display:none">
+                                  <div class="mt-4 mb-2">
+                                    <label class="block">Fitness<label>
+                                </div>
+                                <select id="fitnessselect" class="form-select form-select-lg mb-3
+                                        appearance-none
+                                        block
+                                        w-full
+                                        px-4
+                                        py-2
+                                        text-l
+                                        font-normal
+                                        text-gray-600
+                                        bg-white bg-clip-padding bg-no-repeat
+                                        border border-solid border-gray-300
+                                        rounded
+                                        transition
+                                        ease-in-out
+                                        m-0
+                                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label=".form-select-lg example" onchange='checkvalue4(this.value)'>
+                                        <option selected >Select a Fitness club</option>
+                                        <option id = 'ca1' value="1">abab</option>
+                                        <option id = 'ca2' value="1">abab</option>
+                                        <option id = 'ca3' value="1">abab</option>
+                                        <option id = 'abf' value="other4">Other (Please specify name)</option>
+                                      </select>                    
+                                      <input type = 'text' name = 'hospital' class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" id="other4" style="display:none" />
+                              </div>
+
+
+
 
 
                           <div class="mt-4 mb-2">
