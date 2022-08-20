@@ -10,26 +10,6 @@
     <script src="https://unpkg.com/flowbite@1.5.2/dist/datepicker.js"></script>
 </head>
 <body>
-
-
-    <nav x-data="{show:false}" class="flex items-center justify-between flex-wrap bg-blue-500 p-6">
-        <div class="flex items-center flex-shrink-0 text-white mr-6">
-          <span class="font-semibold text-xl tracking-tight">A Hack A Day</span>
-        </div>
-        <div class="block md:hidden">
-          <button @click="show=!show" class="flex items-center px-3 py-2 border rounded text-gray-100 border-gray-200 hover:text-white hover:border-white">
-            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-          </button>
-        </div>
-        <div @click.away="show = false" :class="{ 'block': show, 'hidden': !show }" class="w-full block flex-grow md:flex md:justify-end md:w-auto">
-          <div>
-             <a href="#" class="block md:inline-block text-lg px-4 py-2 leading-none rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 md:mt-0">Dashboard</a>
-             <a href="#" class="block md:inline-block text-lg px-4 py-2 leading-none rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 md:mt-0">Patient Appointment</a>
-             <a href="#" class="block md:inline-block text-lg px-4 py-2 leading-none rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 md:mt-0">Profile</a>
-             <a href="#" class="block md:inline-block text-lg px-4 py-2 leading-none rounded text-blue border-white hover:border-transparent bg-white mt-4 md:mt-0">Logout</a>
-          </div>
-        </div>
-      </nav>
     <div class="flex items-center justify-center min-h-screen bg-gray-100">
         <div class="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3">
             <h3 class="text-2xl font-bold text-center">Patient Appointment</h3>
@@ -37,14 +17,14 @@
                 <div class="mt-4">
                     <div>
                         <label class="block" for="Name">Name<label>
-                                <input type="text" placeholder="Enter your name"
+                                <input type="text"  id="nameee" placeholder="Enter your name"
                                     class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
                     </div>
 
                     <div class="mt-4 mb-2">
                         <label class="block">Gender<label>
                     </div>
-                    <select class="form-select form-select-lg mb-3
+                    <select id="genderselect" class="form-select form-select-lg mb-3
                             appearance-none
                             block
                             w-full
@@ -59,12 +39,14 @@
                             transition
                             ease-in-out
                             m-0
-                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label=".form-select-lg example">
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label=".form-select-lg example" onchange='checkvalue1(this.value)'>
                             <option selected>Select your gender</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                            <option value="3">Non-binary</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Non-binary">Non-binary</option>
+                            <option value="other1">Other (Please specify)</option>
                           </select>
+                          <input type = 'text' name = 'gender' class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" id="other1" style="display:none" />
 
 
 
@@ -76,29 +58,57 @@
                             <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                               <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
                             </div>
-                            <input datepicker="" datepicker-autohide="" type="text" class="bg-white-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input" placeholder="Select preferable date">
+                            <input id="dateee" datepicker="" datepicker-autohide="" type="text" class="bg-white-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input" placeholder="Select date of birth">
                           </div>
                           
                     <div class="mt-4">
                         <label class="block">Age<label>
-                                <input type="password" placeholder="Age"
+                                <input type="text" id="ageee" placeholder="Age"
                                     class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
                     </div>
                     <div class="mt-4">
                         <label class="block" for="email">Email<label>
-                                <input type="text" placeholder="abc@gmail.com"
+                                <input type="text" id="emailll" placeholder="abc@gmail.com"
                                     class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
                     </div>
                     <div class="mt-4">
                         <label class="block">Mobile Number<label>
-                                <input type="password" placeholder="Please enter your mobile number"
+                                <input type="tetx" id="phoneee" placeholder="Please enter your mobile number"
                                     class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
                     </div>
-
+                          <div class="mt-4 mb-2">
+                            <label class="block">Hospital<label>
+                        </div>
+                        <select id="hospitalselect" class="form-select form-select-lg mb-3
+                                appearance-none
+                                block
+                                w-full
+                                px-4
+                                py-2
+                                text-l
+                                font-normal
+                                text-gray-600
+                                bg-white bg-clip-padding bg-no-repeat
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label=".form-select-lg example" onchange='checkvalue2(this.value)'>
+                                <option selected >Select the hospital</option>
+                                <option id = 'ab1' value="1">abab</option>
+                                <option id  = 'ab2' value="2">baba</option>
+                                <option id = 'ab3' value="3">aac</option>
+                                <option id = 'ab4' value="1">abab</option>
+                                <option id  = 'ab5' value="2">baba</option>
+                                <option id = 'ab6' value="3">aac</option>
+                                <option id = 'abf' value="other2">Other (Please specify name)</option>
+                              </select>                    
+                              <input type = 'text' name = 'hospital' class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" id="other2" style="display:none" />
                     <div class="mt-4 mb-2">
                         <label class="block">Type of Specialist<label>
                     </div>
-                    <select class="form-select form-select-lg mb-3
+                    <select id="specialistselect" class="form-select form-select-lg mb-3
                             appearance-none
                             block
                             w-full
@@ -115,21 +125,19 @@
                             m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label=".form-select-lg example">
                             <option selected>Select the type of specialist</option>
-                            <option value="1">General Physician</option>
-                            <option value="2">Dentist</option>
-                            <option value="3">Dermatologist</option>
-                            <option value="4">Otorhinolaryngologist</option>
-                            <option value="5">Gynaecologists</option>
-                            <option value="6">Neurologists</option>
-                            <option value="7">Pediatrician</option>
-                            <option value="8">Emergency Appointment</option>
+                            <option value="General Physician">General Physician</option>
+                            <option value="Dentist">Dentist</option>
+                            <option value="Dermatologist">Dermatologist</option>
+                            <option value="Gynaecologist">Gynaecologist</option>
+                            <option value="Neurologist">Neurologist</option>
+                            <option value="Pediatrician">Pediatrician</option>
                           </select>
 
 
                           <div class="mt-4 mb-2">
                             <label class="block">Time<label>
                         </div>
-                        <select class="form-select form-select-lg mb-3
+                        <select id="timeselect" class="form-select form-select-lg mb-3
                                 appearance-none
                                 block
                                 w-full
@@ -146,23 +154,28 @@
                                 m-0
                                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label=".form-select-lg example">
                                 <option selected>Select your preferred time</option>
-                                <option value="1">10:00 am - 11:00 am</option>
-                                <option value="2">11:00 am - 12:00 am</option>
-                                <option value="3">03:00 pm - 04:00 pm</option>
-                                <option value="3">04:00 pm - 05:00 pm</option>
-                                <option value="3">05:00 pm - 06:00 pm</option>
-                                <option value="3">06:00 pm - 07:00 pm</option>
+                                <option value="9:30 am">9:00 am - 10:00 am</option>
+                                <option value="10:30 am">10:00 am - 11:00 am</option>
+                                <option value="11:30 am">11:00 am - 12:00 am</option>
+                                <option value="12:30 am">12:00 am - 1:00 pm</option>
+                                <option value="1:30 pm">1:00 pm - 2:00 pm</option>
+                                <option value="2:30 pm">2:00 pm - 3:00 pm</option>
+                                <option value="3:30 pm">3:00 pm - 4:00 pm</option>
+                                <option value="4:30 pm">4:00 pm - 5:00 pm</option>
+                                <option value="5:30 pm">5:00 pm - 6:00 pm</option>
+                                <option value="6:30 pm">6:00 pm - 7:00 pm</option>
+                                <option value="7:30 pm">7:00 pm - 8:00 pm</option>
+                                <option value="8:30 pm">8:00 pm - 9:00 pm</option>
+                                <option value="9:30 pm">9:00 pm - 10:00 pm</option>
                               </select>
-
-
-
                     <div class="flex">
-                        <button class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Submit</button>
+                        <button type="button" id="final" class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" onclick="addAppointments()">Submit</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+    <script src = 'formscript.js' type="module"></script>
 </body>
 </html>
 

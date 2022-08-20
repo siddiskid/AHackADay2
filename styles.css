@@ -28,10 +28,11 @@
 .photo {
   margin: 0;
   position: absolute;
-  top: 40%;
+  top: 52%;
   left: 80%;
   transform: translate(-50%, -50%);
   font-size: 25px;
+  z-index: -999;
 }
 
 .maincontent {
@@ -46,6 +47,7 @@
 body {
   font-family: "aest2";
   background-image: url("images/hand-drawn-minimal-background_23-2149006548.webp");
+  background-attachment: fixed;
 }
 
 .right {
@@ -75,6 +77,15 @@ body {
 .hospitalsintro {
   margin-left: 20px;
 }
+.appointments {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.appointmentsintro {
+  margin-left: 20px;
+}
 .clinicintro {
   margin-left: 20px;
 }
@@ -84,7 +95,7 @@ body {
 .Blocks {
   font-size: 15px;
   width: 250px;
-  height: 200px;
+  height: 210px;
   padding: 20px;
   margin: 20px;
   background-color: white;
@@ -125,5 +136,9 @@ a:visited {
 }
 
 .logout {
+  display: none;
+}
+
+.onlyshowtologin {
   display: none;
 }

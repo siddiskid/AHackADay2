@@ -6,6 +6,16 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  doc,
+  setDoc,
+  query,
+  where,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js";
 import {} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -27,14 +37,26 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+const db = getFirestore(app);
 
 function signIn() {
   signInWithPopup(auth, provider).then((res) => {
     console.log(res);
+    localStorage.setItem("Name", res.user.displayName);
+    localStorage.setItem("Email", res.user.email);
+    localStorage.setItem("UserID", res.user.uid);
+    var uid11 = res.user.uid;
+    if (res.user.phoneNumber !== null) {
+      localStorage.setItem("Phone", res.user.phoneNumber);
+    } else {
+      localStorage.setItem("Phone", "notgiven");
+    }
     document.getElementById("login").style.display = "none";
+    document.getElementById("onlyshowtologin").style.display = "block";
     document.getElementById("logout").style.display = "block";
     document.getElementById("welcomeuser").innerHTML =
       "Welcome " + res.user.displayName + "!";
+    getAppointments(uid11);
   });
 }
 
@@ -43,7 +65,44 @@ function signOutt() {
     console.log("signed out");
     document.getElementById("logout").style.display = "none";
     document.getElementById("login").style.display = "block";
+    document.getElementById("onlyshowtologin").style.display = "none";
     document.getElementById("welcomeuser").innerHTML = " ";
+  });
+}
+
+function getAppointments(uid) {
+  const appref = collection(db, "appointments");
+  const q = query(appref, where("UID", "==", uid));
+  const querySnapshot = getDocs(q).then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      var x = doc.data();
+      console.log(x);
+
+      var massiveBlock = document.createElement("div");
+      massiveBlock.classList.add("Blocks");
+      var a = document.createElement("div");
+      a.classList.add("first");
+      var add = document.createElement("div");
+      add.classList.add("secondlast");
+      var dist = document.createElement("div");
+      dist.classList.add("secondlast");
+      var time = document.createElement("div");
+      time.classList.add("secondlast");
+      var add1 = document.createElement("div");
+      add1.classList.add("secondlast");
+
+      a.innerHTML = x.Name;
+      add.innerHTML = x.Hospital;
+      dist.innerHTML = x.Specialist;
+      time.innerHTML = x.Time;
+      add1.innerHTML = x.Address;
+      massiveBlock.appendChild(a);
+      massiveBlock.appendChild(add);
+      massiveBlock.appendChild(dist);
+      massiveBlock.appendChild(add1);
+      massiveBlock.appendChild(time);
+      document.getElementById("appointments").appendChild(massiveBlock);
+    });
   });
 }
 
@@ -90,7 +149,7 @@ fetch(apiparam1, requestOptions)
       add.innerHTML = ab.features[i].properties.address_line2;
       dist.innerHTML = ab.features[i].properties.distance.toString() + "m away";
       app.appendChild(linktext);
-      app.href = "#";
+      app.href = "patient_form.html";
       massiveBlock.appendChild(a);
       massiveBlock.appendChild(add);
       massiveBlock.appendChild(dist);
