@@ -9,12 +9,11 @@ import {
 import {
   getFirestore,
   collection,
-  addDoc,
-  doc,
-  setDoc,
   query,
   where,
+  deleteDoc,
   getDocs,
+  doc,
 } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js";
 import {} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -67,6 +66,7 @@ function displayAppointments(name) {
       add.onclick = () => {
         console.log("done");
         add.parentNode.style.display = "none";
+        deleteApp(x.Name, x.Specialist, x.Time);
       };
       massiveBlock.appendChild(a);
       massiveBlock.appendChild(dist);
@@ -75,6 +75,21 @@ function displayAppointments(name) {
       document.getElementById("appointments").appendChild(massiveBlock);
     });
     document.getElementById("bigappointments").style.display = "block";
+  });
+}
+
+function deleteApp(name, specialist, time) {
+  const citiesRef = collection(db, "appointments");
+  const q = query(
+    citiesRef,
+    where("Name", "==", name),
+    where("Specialist", "==", specialist),
+    where("Time", "==", time)
+  );
+  const querySnapshot = getDocs(q).then((querySnapshot) => {
+    querySnapshot.forEach((docs) => {
+      deleteDoc(doc(db, "appointments", docs.id));
+    });
   });
 }
 
@@ -117,4 +132,8 @@ document.getElementById("login").onclick = () => {
 
 document.getElementById("logout").onclick = () => {
   signOutt();
+};
+
+document.getElementById("loginbutton2").onclick = () => {
+  signIn();
 };

@@ -9,12 +9,11 @@ import {
 import {
   getFirestore,
   collection,
-  addDoc,
   doc,
-  setDoc,
   query,
   where,
   getDocs,
+  deleteDoc,
 } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js";
 import {} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -79,6 +78,21 @@ function signOutt() {
   });
 }
 
+function deleteApp(name, hospital, time) {
+  const citiesRef = collection(db, "appointments");
+  const q = query(
+    citiesRef,
+    where("Name", "==", name),
+    where("Hospital", "==", hospital),
+    where("Time", "==", time)
+  );
+  const querySnapshot = getDocs(q).then((querySnapshot) => {
+    querySnapshot.forEach((docs) => {
+      deleteDoc(doc(db, "appointments", docs.id));
+    });
+  });
+}
+
 function getAppointments(uid) {
   const appref = collection(db, "appointments");
   const q = query(appref, where("UID", "==", uid));
@@ -100,7 +114,7 @@ function getAppointments(uid) {
       var add1 = document.createElement("div");
       add1.classList.add("secondlast");
       var add2 = document.createElement("a");
-      add2.classList.add("secondlast");
+      add2.classList.add("secondlasta");
       add2.classList.add("remove");
 
       a.innerHTML = x.Name;
@@ -108,11 +122,11 @@ function getAppointments(uid) {
       dist.innerHTML = x.Specialist;
       time.innerHTML = x.Time;
       add1.innerHTML = x.Address;
-      add2.innerHTML = "Reported";
-      add2.href = "#";
+      add2.innerHTML = "Completed";
       add2.onclick = () => {
         console.log("done");
         add2.parentNode.style.display = "none";
+        deleteApp(x.Name, x.Hospital, x.Time);
       };
       massiveBlock.appendChild(a);
       massiveBlock.appendChild(add);
@@ -209,7 +223,7 @@ fetch(apiparam2, requestOptions)
       add.innerHTML = ab.features[i].properties.address_line2;
       dist.innerHTML = ab.features[i].properties.distance.toString() + "m away";
       app.appendChild(linktext);
-      app.href = "#";
+      app.href = "patient_form.html";
       massiveBlock.appendChild(a);
       massiveBlock.appendChild(add);
       massiveBlock.appendChild(dist);

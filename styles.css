@@ -19,10 +19,9 @@
   src: url("fonts/Inter-Medium.ttf") format("truetype");
 }
 
-.main {
-  width: 100%;
+/* .main {
   height: 300px;
-}
+} */
 .dropimg {
   width: 15px;
   height: 15px;
@@ -32,7 +31,7 @@
 }
 .welcomeuser {
   font-family: "aest3";
-  color: #163d5e;
+  color: #103754;
   margin: 0;
   position: absolute;
   top: 20%;
@@ -64,10 +63,13 @@
   font-size: 23px;
   padding: 10px;
   border: none;
-  background-color: white;
+  background-color: #ffdcd3;
+  transition-duration: 500ms;
 }
 .hospitalbutton:hover {
   cursor: pointer;
+  transition-duration: 500ms;
+  background-color: #fff5f4;
 }
 .psycbutton {
   font-family: "aest4";
@@ -75,10 +77,13 @@
   font-size: 23px;
   padding: 10px;
   border: none;
-  background-color: white;
+  background-color: #ffdcd3;
+  transition-duration: 500ms;
 }
 .psycbutton:hover {
   cursor: pointer;
+  transition-duration: 500ms;
+  background-color: #fff5f4;
 }
 .fitnessbutton {
   font-family: "aest4";
@@ -86,9 +91,20 @@
   font-size: 23px;
   padding: 10px;
   border: none;
-  background-color: white;
+  background-color: #ffdcd3;
+  transition-duration: 500ms;
 }
 .fitnessbutton:hover {
+  cursor: pointer;
+  transition-duration: 500ms;
+  background-color: #fff5f4;
+}
+.secondlasta {
+  padding: 5px;
+  font-size: 18px;
+  color: #6e757a;
+}
+.secondlasta:hover {
   cursor: pointer;
 }
 .photo {
@@ -101,8 +117,10 @@
   z-index: -999;
 }
 .maincontent {
+  width: 750px;
+  height: 85px;
   font-family: "aest3";
-  color: #163d5e;
+  color: #103754;
   margin: 0;
   position: absolute;
   top: 45%;
@@ -110,17 +128,35 @@
   transform: translate(-50%, -50%);
   font-size: 35px;
 }
+.login {
+  transition-duration: 500ms;
+}
+.baba {
+  height: 300px;
+}
+.logout {
+  transition-duration: 500ms;
+}
 .login:hover {
   cursor: pointer;
+  transition-duration: 500ms;
+  color: #314584;
 }
 .logout:hover {
   cursor: pointer;
+  transition-duration: 500ms;
+  color: #314584;
+}
+.topnav {
+  height: 110px;
 }
 .loginprompt {
+  width: 750px;
+  height: 85px;
   margin: 0;
   position: absolute;
   top: 63%;
-  left: 17%;
+  left: 35%;
   transform: translate(-50%, -50%);
 }
 .loginbutton2 {
@@ -128,38 +164,45 @@
   font-size: 23px;
   padding: 10px;
   border: none;
-  background-color: white;
+  transition-duration: 500ms;
+  background-color: #fff5f4;
 }
 .loginbutton2:hover {
   cursor: pointer;
+  transition-duration: 500ms;
+  background-color: #ffdcd3;
 }
 body {
   font-family: "aest2";
-  background-image: url("images/hand-drawn-minimal-background_23-2149006548.webp");
+  background-image: url("images/backmain.webp");
   background-attachment: fixed;
 }
 .semiright {
+  width: 300px;
+  height: 36px;
   margin: 0;
   position: absolute;
   top: 5%;
-  left: 65%;
+  left: 70%;
   transform: translate(-50%, -50%);
   font-size: 30px;
 }
 .right {
   width: 300px;
+  height: 36px;
   margin: 0;
   position: absolute;
-  top: 5%;
+  top: 5.65%;
   left: 85%;
   transform: translate(-50%, -50%);
   font-size: 25px;
 }
 .loggo {
-  width: 343.5px;
+  width: 400px;
   height: 78px;
 }
 .bigappointments {
+  margin-bottom: 10px;
   display: none;
 }
 .exploretext {
@@ -171,9 +214,9 @@ body {
 .logo {
   margin: 0;
   position: absolute;
-  top: 7%;
-  left: 13%;
-  transform: translate(-50%, -50%);
+  top: 1%;
+  left: 1%;
+  /* transform: translate(-50%, -50%); */
   font-size: 25px;
   font-weight: bold;
 }
