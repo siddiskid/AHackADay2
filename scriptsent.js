@@ -105,9 +105,9 @@ function signOutt() {
     document.getElementById("welcomeuser").innerHTML = " ";
     document.getElementById("loginprompt").style.display = "block";
     document.getElementById("fts").style.display = "block";
+    document.getElementById("managestuff").style.display = "none";
     document.getElementById("photo").style.display = "block";
-    document.getElementById("maincontent").innerHTML =
-      "Manage your business here";
+    document.getElementById("maincontent").style.display = "block";
   });
 }
 
