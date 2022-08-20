@@ -56,17 +56,20 @@ function signIn() {
     document.getElementById("logout").style.display = "block";
     document.getElementById("welcomeuser").innerHTML =
       "Welcome " + res.user.displayName + "!";
+    document.getElementById("loginprompt").style.display = "none";
+    document.getElementById("maincontent").style.display = "none";
     getAppointments(uid11);
   });
 }
 
 function signOutt() {
   signOut(auth).then(() => {
-    console.log("signed out");
     document.getElementById("logout").style.display = "none";
     document.getElementById("login").style.display = "block";
     document.getElementById("onlyshowtologin").style.display = "none";
     document.getElementById("welcomeuser").innerHTML = " ";
+    document.getElementById("loginprompt").style.display = "block";
+    document.getElementById("maincontent").style.display = "block";
   });
 }
 
@@ -90,19 +93,30 @@ function getAppointments(uid) {
       time.classList.add("secondlast");
       var add1 = document.createElement("div");
       add1.classList.add("secondlast");
+      var add2 = document.createElement("a");
+      add2.classList.add("secondlast");
+      add2.classList.add("remove");
 
       a.innerHTML = x.Name;
       add.innerHTML = x.Hospital;
       dist.innerHTML = x.Specialist;
       time.innerHTML = x.Time;
       add1.innerHTML = x.Address;
+      add2.innerHTML = "Reported";
+      add2.href = "#";
+      add2.onclick = () => {
+        console.log("done");
+        add2.parentNode.style.display = "none";
+      };
       massiveBlock.appendChild(a);
       massiveBlock.appendChild(add);
       massiveBlock.appendChild(dist);
       massiveBlock.appendChild(add1);
       massiveBlock.appendChild(time);
+      massiveBlock.appendChild(add2);
       document.getElementById("appointments").appendChild(massiveBlock);
     });
+    document.getElementById("bigappointments").style.display = "block";
   });
 }
 

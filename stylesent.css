@@ -50,15 +50,6 @@ body {
   background-attachment: fixed;
 }
 
-.semiright {
-  margin: 0;
-  position: absolute;
-  top: 5%;
-  left: 65%;
-  transform: translate(-50%, -50%);
-  font-size: 20px;
-}
-
 .right {
   margin: 0;
   position: absolute;
@@ -66,7 +57,11 @@ body {
   left: 85%;
   transform: translate(-50%, -50%);
 }
-
+.appointments {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 .loginprompt {
   margin: 0;
   position: absolute;
@@ -74,12 +69,16 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.fts {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .loggo {
   width: 343.5px;
   height: 78px;
-}
-.bigappointments {
-  display: none;
 }
 
 .logo {
@@ -92,34 +91,25 @@ body {
   font-weight: bold;
 }
 
-.hospitals {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+a {
+  text-decoration: none;
 }
 
-.hospitalsintro {
-  margin-left: 20px;
-}
-.appointments {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+a:visited {
+  color: #6e757a;
 }
 
-.appointmentsintro {
-  margin-left: 20px;
+.logout {
+  display: none;
 }
-.clinicintro {
-  margin-left: 20px;
-}
-.pharmacyintro {
-  margin-left: 20px;
+
+.onlyshowtologin {
+  display: none;
 }
 .Blocks {
   font-size: 15px;
   width: 250px;
-  height: 230px;
+  height: 210px;
   padding: 20px;
   margin: 20px;
   background-color: white;
@@ -142,27 +132,11 @@ a:visited {
   color: #6e757a;
 }
 
-.second {
-  padding: 5px;
-  font-size: 18px;
-  color: #6e757a;
-}
-
 .secondlast {
   padding: 5px;
   font-size: 18px;
   color: #6e757a;
 }
-
-.last {
-  padding: 5px;
-  color: black;
-}
-
-.logout {
-  display: none;
-}
-
-.onlyshowtologin {
+.bigappointments {
   display: none;
 }

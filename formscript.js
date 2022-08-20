@@ -191,4 +191,10 @@ document.getElementById("final").onclick = () => {
     uid1,
     add1
   );
+  document.getElementById("first").style.display = "none";
+  document.getElementById("finalbanner").style.display = "block";
+};
+
+document.getElementById("redirectback").onclick = () => {
+  window.location.href = "index.html";
 };
