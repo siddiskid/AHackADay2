@@ -2,6 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
 import {
   getAuth,
+  signOut,
   GoogleAuthProvider,
   signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
@@ -27,11 +28,31 @@ const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-document.getElementById("login").onclick = () => {
+function signIn() {
   signInWithPopup(auth, provider).then((res) => {
     console.log(res);
-    document.getElementById("login").innerHTML = "Logout";
+    document.getElementById("login").style.display = "none";
+    document.getElementById("logout").style.display = "block";
+    document.getElementById("welcomeuser").innerHTML =
+      "Welcome " + res.user.displayName + "!";
   });
+}
+
+function signOutt() {
+  signOut(auth).then(() => {
+    console.log("signed out");
+    document.getElementById("logout").style.display = "none";
+    document.getElementById("login").style.display = "block";
+    document.getElementById("welcomeuser").innerHTML = " ";
+  });
+}
+
+document.getElementById("login").onclick = () => {
+  signIn();
+};
+
+document.getElementById("logout").onclick = () => {
+  signOutt();
 };
 
 var ab = [];
