@@ -58,6 +58,7 @@ function signIn() {
       "Welcome " + res.user.displayName + "!";
     document.getElementById("loginprompt").style.display = "none";
     document.getElementById("maincontent").style.display = "none";
+    document.getElementById("photo").style.display = "none";
     getAppointments(uid11);
   });
 }
@@ -70,6 +71,7 @@ function signOutt() {
     document.getElementById("welcomeuser").innerHTML = " ";
     document.getElementById("loginprompt").style.display = "block";
     document.getElementById("maincontent").style.display = "block";
+    document.getElementById("photo").style.display = "block";
   });
 }
 

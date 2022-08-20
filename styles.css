@@ -10,6 +10,14 @@
   font-family: "aest2";
   src: url("fonts/Inter-Regular.ttf") format("truetype");
 }
+@font-face {
+  font-family: "aest3";
+  src: url("fonts/Inter-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "aest4";
+  src: url("fonts/Inter-Medium.ttf") format("truetype");
+}
 
 .main {
   width: 100%;
@@ -17,12 +25,14 @@
 }
 
 .welcomeuser {
+  font-family: "aest3";
+  color: #163d5e;
   margin: 0;
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 25px;
+  font-size: 35px;
 }
 
 .photo {
@@ -36,14 +46,29 @@
 }
 
 .maincontent {
+  font-family: "aest3";
+  color: #163d5e;
   margin: 0;
   position: absolute;
-  top: 30%;
-  left: 50%;
+  top: 45%;
+  left: 35%;
   transform: translate(-50%, -50%);
-  font-size: 25px;
+  font-size: 35px;
 }
-
+.loginprompt {
+  margin: 0;
+  position: absolute;
+  top: 63%;
+  left: 17%;
+  transform: translate(-50%, -50%);
+}
+.loginbutton2 {
+  font-family: "aest4";
+  font-size: 23px;
+  padding: 10px;
+  border: none;
+  background-color: white;
+}
 body {
   font-family: "aest2";
   background-image: url("images/hand-drawn-minimal-background_23-2149006548.webp");
@@ -56,24 +81,18 @@ body {
   top: 5%;
   left: 65%;
   transform: translate(-50%, -50%);
-  font-size: 20px;
+  font-size: 30px;
 }
-
 .right {
+  width: 300px;
   margin: 0;
   position: absolute;
   top: 5%;
   left: 85%;
   transform: translate(-50%, -50%);
+  font-size: 25px;
 }
 
-.loginprompt {
-  margin: 0;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 .loggo {
   width: 343.5px;
   height: 78px;
@@ -98,23 +117,30 @@ body {
   justify-content: space-around;
 }
 
-.hospitalsintro {
-  margin-left: 20px;
-}
 .appointments {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
-
+.hospitalsintro {
+  font-family: "aest4";
+  font-size: 22px;
+  margin-left: 21px;
+}
 .appointmentsintro {
-  margin-left: 20px;
+  font-family: "aest4";
+  font-size: 22px;
+  margin-left: 21px;
 }
 .clinicintro {
-  margin-left: 20px;
+  font-family: "aest4";
+  font-size: 22px;
+  margin-left: 21px;
 }
 .pharmacyintro {
-  margin-left: 20px;
+  font-family: "aest4";
+  font-size: 22px;
+  margin-left: 21px;
 }
 .Blocks {
   font-size: 15px;
@@ -126,43 +152,35 @@ body {
   border-radius: 2px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 .first {
   padding: 5px;
   color: #314584;
   font-size: 20px;
   font-weight: bold;
 }
-
 a {
   text-decoration: none;
 }
-
 a:visited {
   color: #6e757a;
 }
-
 .second {
   padding: 5px;
   font-size: 18px;
   color: #6e757a;
 }
-
 .secondlast {
   padding: 5px;
   font-size: 18px;
   color: #6e757a;
 }
-
 .last {
   padding: 5px;
   color: black;
 }
-
 .logout {
   display: none;
 }
-
 .onlyshowtologin {
   display: none;
 }

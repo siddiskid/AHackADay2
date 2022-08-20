@@ -11,7 +11,7 @@
     <div class="parallax">
       <div class="topnav">
         <div class="logo">
-          <a><img class="loggo" src="images/logo.png" /></a>
+          <a href="index.html"><img class="loggo" src="images/logo.png" /></a>
         </div>
         <div class="semiright">
           <a class="gotoent" href="enterprise.html">Enterprise</a>
@@ -27,9 +27,13 @@
           Everything about your health and wellness, <br />
           in one place
         </div>
-        <div class="loginprompt" id="loginprompt">Login to get started</div>
+        <div class="loginprompt" id="loginprompt">
+          <button class="loginbutton2" id="login" onclick="signIn()">
+            Login to get started
+          </button>
+        </div>
         <div class="content"></div>
-        <div class="photo"><img src="images/doc.png" /></div>
+        <div class="photo" id="photo"><img src="images/doc.png" /></div>
       </div>
       <div class="onlyshowtologin" id="onlyshowtologin">
         <div class="bigappointments" id="bigappointments">

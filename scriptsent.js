@@ -88,18 +88,10 @@ function signIn() {
     console.log(res);
     document.getElementById("loginprompt").style.display = "none";
     document.getElementById("fts").style.display = "none";
-    document.getElementById("maincontent").innerHTML =
+    document.getElementById("maincontent").style.display = "none";
+    document.getElementById("managestuff").innerHTML =
       "Manage appointments for " + localStorage.getItem("hosname");
-    // localStorage.setItem("Name", res.user.displayName);
-    // localStorage.setItem("Email", res.user.email);
-    // localStorage.setItem("UserID", res.user.uid);
-    // var uid11 = res.user.uid;
-    // if (res.user.phoneNumber !== null) {
-    //   localStorage.setItem("Phone", res.user.phoneNumber);
-    // } else {
-    //   localStorage.setItem("Phone", "notgiven");
-    // }
-    // getAppointments(uid11);
+    document.getElementById("photo").style.display = "none";
     displayAppointments(localStorage.getItem("hosname"));
   });
 }
@@ -113,6 +105,7 @@ function signOutt() {
     document.getElementById("welcomeuser").innerHTML = " ";
     document.getElementById("loginprompt").style.display = "block";
     document.getElementById("fts").style.display = "block";
+    document.getElementById("photo").style.display = "block";
     document.getElementById("maincontent").innerHTML =
       "Manage your business here";
   });
