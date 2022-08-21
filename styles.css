@@ -99,6 +99,20 @@
   transition-duration: 500ms;
   background-color: #fff5f4;
 }
+.babutton {
+  font-family: "aest4";
+  margin: 10px;
+  font-size: 23px;
+  padding: 10px;
+  border: none;
+  background-color: #ffdcd3;
+  transition-duration: 500ms;
+}
+.babutton:hover {
+  cursor: pointer;
+  transition-duration: 500ms;
+  background-color: #fff5f4;
+}
 .secondlasta {
   padding: 5px;
   font-size: 18px;

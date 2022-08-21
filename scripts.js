@@ -374,3 +374,7 @@ document.getElementById("fitnessbutton").onclick = () => {
     document.getElementById("massivefitness").style.display = "block";
   }
 };
+
+document.getElementById("babutton").onclick = () => {
+  window.location.href = "patient_form.html";
+};
