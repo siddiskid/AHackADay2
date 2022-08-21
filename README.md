@@ -4,10 +4,10 @@ This project is submitted for [A Hack A Day 2](https://ahackaday2.devpost.com/).
 
 ---
 
-## Brief ❤️‍🩹
-A Web Application for users to quickly fetch hospitals and specialist doctors where we can quickly schedule appointments from anywhere based on your preferred availability. We also have dedicated live chatbot with the tech support team for slots availability, emergency and also get to the symptoms of some commonly infected diseases. 
+## Brief description
+Wellness 360 is a website which shows users the nearest health and lifestyle locations and lets them book appointments with any of these places. It also has a chatbot which asks the user what symptoms they are facing and tells them the disease they are most likely affected by. Additionally, Wellness 360 Enterprise is a website for businesses, where they can register themselves with us and get updates on appointments booked with them.
 
-## Technology Stack Used ⚙️
+## Technology Stack Used 
 <a href="#" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a>
 <a href="#" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a>
 <a href="#" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="css3" width="40" height="40"/> </a>
@@ -33,8 +33,8 @@ A Web Application for users to quickly fetch hospitals and specialist doctors wh
 
 4 - Integrated with live chatbot support which helps with basic functionalities like slots availability, symptoms of common diseases and emergency support.
 
-## Accomplishments that we're proud of 🏆
+## Accomplishments that we're proud of
 We were able to accomplish each and every goal we laid out at the beginning of the project, which is an accomplishment we're really proud of. We really liked the way how our website looks healthy for the users.
 
-## What we learned 📚
+## What we learned 
 We learned several technologies throughout this weekend by working together. 
