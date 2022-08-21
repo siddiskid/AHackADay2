@@ -25,7 +25,16 @@ A Web Application for users to quickly fetch hospitals and specialist doctors wh
 - [Geoapify](https://www.geoapify.com/)
 
 ## What it does?
-........................
+1 - Fetches hospitals near your location using Geoapify API
+
+2 - Schedules appointment with the doctor based on the specialist of your choice
+
+3 - Sends SMS to the registered mobile nummber using Twilio once the appointment is been confirmed
+
+4 - Integrated with live chatbot support which helps with basic functionalities like slots availability, symptoms of common diseases and emergency support.
+
+## Accomplishments that we're proud of 🏆
+We were able to accomplish each and every goal we laid out at the beginning of the project, which is an accomplishment we're really pround of. We really liked the way how our website looks healthy for the users.
 
 ## What we learned 📚
 We learned several technologies throughout this weekend by working together. 
