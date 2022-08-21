@@ -4,10 +4,10 @@ This project is submitted for [A Hack A Day 2](https://ahackaday2.devpost.com/).
 
 ---
 
-## Brief ❤️‍🩹
+## Summary:
 A Web Application for users to quickly fetch hospitals and specialist doctors where we can quickly schedule appointments from anywhere based on your preferred availability. We also have dedicated live chatbot with the tech support team for slots availability, emergency and also get to the symptoms of some commonly infected diseases. 
 
-## Technology Stack Used ⚙️
+## Technology Stack Used:
 <a href="#" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a>
 <a href="#" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a>
 <a href="#" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="css3" width="40" height="40"/> </a>
@@ -24,17 +24,26 @@ A Web Application for users to quickly fetch hospitals and specialist doctors wh
 #### APIs used
 - [Geoapify](https://www.geoapify.com/)
 
-## What it does 🪛
+## What it does?
 1 - Fetches hospitals near your location using Geoapify API
 
 2 - Schedules appointment with the doctor based on the specialist of your choice
 
-3 - Sends SMS to the registered mobile number using Twilio once the appointment is been confirmed
+3 - Sends SMS to the registered mobile nummber using Twilio once the appointment is been confirmed
 
 4 - Integrated with live chatbot support which helps with basic functionalities like slots availability, symptoms of common diseases and emergency support.
 
-## Accomplishments that we're proud of 🏆
-We were able to accomplish each and every goal we laid out at the beginning of the project, which is an accomplishment we're really proud of. We really liked the way how our website looks healthy for the users.
+## Screenshots
+.....
+
+## Challenges we ran into
+Building chatbot, designing logo
 
 ## What we learned 📚
 We learned several technologies throughout this weekend by working together. 
+
+## Accomplishments that we're proud of
+We were successful in developing a Web Application and feel proud in bringing our thoughts to reality. It was a golden opportunity to network with people from different parts of the country coming together to develop a project.
+
+## What's next for Wellness 360
+We believe that Wellness 360 possesses tremendous potential and can be taken forward.
