@@ -148,6 +148,9 @@
 .baba {
   height: 300px;
 }
+.gotoent {
+  color: #6e757a;
+}
 .logout {
   transition-duration: 500ms;
 }
