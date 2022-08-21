@@ -3,117 +3,135 @@ var hosadd = {};
 var select1 = false;
 var select2 = false;
 
-let apiparam1 =
-  "https://api.geoapify.com/v2/places?categories=healthcare.hospital&bias=proximity:77.6667136,12.910592&limit=3&apiKey=6211193b5dfd4c76b3a7889d3fa560d1 ";
-let apiparam2 =
-  "https://api.geoapify.com/v2/places?categories=healthcare.clinic_or_praxis&bias=proximity:77.6667136,12.910592&limit=3&apiKey=6211193b5dfd4c76b3a7889d3fa560d1 ";
-let apiparam4 =
-  "https://api.geoapify.com/v2/places?categories=healthcare.clinic_or_praxis.psychiatry&bias=proximity:77.6667136,12.910592&limit=20&apiKey=6211193b5dfd4c76b3a7889d3fa560d1";
-let apiparam5 =
-  "https://api.geoapify.com/v2/places?categories=building.sport&bias=proximity:77.6667136,12.910592&limit=3&apiKey=6211193b5dfd4c76b3a7889d3fa560d1";
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      var latt = position.coords.latitude;
+      var longg = position.coords.longitude;
+      let apiparam1 = `https://api.geoapify.com/v2/places?categories=healthcare.hospital&bias=proximity:${longg},${latt}&limit=3&apiKey=6211193b5dfd4c76b3a7889d3fa560d1`;
+      let apiparam2 = `https://api.geoapify.com/v2/places?categories=healthcare.clinic_or_praxis&bias=proximity:${longg},${latt}&limit=3&apiKey=6211193b5dfd4c76b3a7889d3fa560d1 `;
+      let apiparam3 = `https://api.geoapify.com/v2/places?categories=healthcare.pharmacy&bias=proximity:${longg},${latt}&limit=2&apiKey=6211193b5dfd4c76b3a7889d3fa560d1 `;
+      let apiparam4 = `https://api.geoapify.com/v2/places?categories=healthcare.clinic_or_praxis.psychiatry&bias=proximity:${longg},${latt}&limit=20&apiKey=6211193b5dfd4c76b3a7889d3fa560d1`;
+      let apiparam5 = `https://api.geoapify.com/v2/places?categories=building.sport&bias=proximity:${longg},${latt}&limit=3&apiKey=6211193b5dfd4c76b3a7889d3fa560d1`;
+      var requestOptions = {
+        method: "GET",
+      };
 
-var requestOptions = {
-  method: "GET",
-};
+      fetch(apiparam1, requestOptions)
+        .then((response) => response.json())
+        .then(function (result) {
+          ab = result;
+          // console.log(ab);
+          // console.log(ab.features[0].properties);
+          for (let i = 0; i < ab.features.length; i++) {
+            if (i === 0) {
+              document.getElementById("ab1").innerHTML =
+                ab.features[i].properties.name;
+              document.getElementById("ab1").value =
+                ab.features[i].properties.name;
+            }
+            if (i === 1) {
+              document.getElementById("ab2").innerHTML =
+                ab.features[i].properties.name;
+              document.getElementById("ab2").value =
+                ab.features[i].properties.name;
+            }
+            if (i === 2) {
+              document.getElementById("ab3").innerHTML =
+                ab.features[i].properties.name;
+              document.getElementById("ab3").value =
+                ab.features[i].properties.name;
+            }
+            hosadd[ab.features[i].properties.name] =
+              ab.features[i].properties.address_line2;
+          }
+        })
+        .catch((error) => console.log("error", error));
+      fetch(apiparam2, requestOptions)
+        .then((response) => response.json())
+        .then(function (result) {
+          ab = result;
+          // console.log(ab);
+          // console.log(ab.features[0].properties);
+          for (let i = 0; i < ab.features.length; i++) {
+            if (i === 0) {
+              document.getElementById("ab4").innerHTML =
+                ab.features[i].properties.name;
+              document.getElementById("ab4").value =
+                ab.features[i].properties.name;
+            }
+            if (i === 1) {
+              document.getElementById("ab5").innerHTML =
+                ab.features[i].properties.name;
+              document.getElementById("ab5").value =
+                ab.features[i].properties.name;
+            }
+            if (i === 2) {
+              document.getElementById("ab6").innerHTML =
+                ab.features[i].properties.name;
+              document.getElementById("ab6").value =
+                ab.features[i].properties.name;
+            }
+            hosadd[ab.features[i].properties.name] =
+              ab.features[i].properties.address_line2;
+          }
+        })
+        .catch((error) => console.log("error", error));
 
-fetch(apiparam1, requestOptions)
-  .then((response) => response.json())
-  .then(function (result) {
-    ab = result;
-    // console.log(ab);
-    // console.log(ab.features[0].properties);
-    for (let i = 0; i < ab.features.length; i++) {
-      if (i === 0) {
-        document.getElementById("ab1").innerHTML =
-          ab.features[i].properties.name;
-        document.getElementById("ab1").value = ab.features[i].properties.name;
-      }
-      if (i === 1) {
-        document.getElementById("ab2").innerHTML =
-          ab.features[i].properties.name;
-        document.getElementById("ab2").value = ab.features[i].properties.name;
-      }
-      if (i === 2) {
-        document.getElementById("ab3").innerHTML =
-          ab.features[i].properties.name;
-        document.getElementById("ab3").value = ab.features[i].properties.name;
-      }
-      hosadd[ab.features[i].properties.name] =
-        ab.features[i].properties.address_line2;
-    }
-  })
-  .catch((error) => console.log("error", error));
-fetch(apiparam2, requestOptions)
-  .then((response) => response.json())
-  .then(function (result) {
-    ab = result;
-    // console.log(ab);
-    // console.log(ab.features[0].properties);
-    for (let i = 0; i < ab.features.length; i++) {
-      if (i === 0) {
-        document.getElementById("ab4").innerHTML =
-          ab.features[i].properties.name;
-        document.getElementById("ab4").value = ab.features[i].properties.name;
-      }
-      if (i === 1) {
-        document.getElementById("ab5").innerHTML =
-          ab.features[i].properties.name;
-        document.getElementById("ab5").value = ab.features[i].properties.name;
-      }
-      if (i === 2) {
-        document.getElementById("ab6").innerHTML =
-          ab.features[i].properties.name;
-        document.getElementById("ab6").value = ab.features[i].properties.name;
-      }
-      hosadd[ab.features[i].properties.name] =
-        ab.features[i].properties.address_line2;
-    }
-  })
-  .catch((error) => console.log("error", error));
+      fetch(apiparam4, requestOptions)
+        .then((response) => response.json())
+        .then(function (result) {
+          ab = result;
+          // console.log(ab);
+          // console.log(ab.features[0].properties);
+          for (let i = 0; i < ab.features.length; i++) {
+            if (i === 0) {
+              document.getElementById("ba1").innerHTML =
+                ab.features[i].properties.name;
+              document.getElementById("ab1").value =
+                ab.features[i].properties.name;
+            }
+          }
+        })
+        .catch((error) => console.log("error", error));
 
-fetch(apiparam4, requestOptions)
-  .then((response) => response.json())
-  .then(function (result) {
-    ab = result;
-    // console.log(ab);
-    // console.log(ab.features[0].properties);
-    for (let i = 0; i < ab.features.length; i++) {
-      if (i === 0) {
-        document.getElementById("ba1").innerHTML =
-          ab.features[i].properties.name;
-        document.getElementById("ab1").value = ab.features[i].properties.name;
-      }
-    }
-  })
-  .catch((error) => console.log("error", error));
+      fetch(apiparam5, requestOptions)
+        .then((response) => response.json())
+        .then(function (result) {
+          ab = result;
+          // console.log(ab);
+          // console.log(ab.features[0].properties);
+          for (let i = 0; i < ab.features.length; i++) {
+            if (i === 0) {
+              document.getElementById("ca1").innerHTML =
+                ab.features[i].properties.name;
+              document.getElementById("ca1").value =
+                ab.features[i].properties.name;
+            }
+            if (i === 1) {
+              document.getElementById("ca2").innerHTML =
+                ab.features[i].properties.name;
+              document.getElementById("ca2").value =
+                ab.features[i].properties.name;
+            }
+            if (i === 2) {
+              document.getElementById("ca3").innerHTML =
+                ab.features[i].properties.name;
+              document.getElementById("ca3").value =
+                ab.features[i].properties.name;
+            }
+            hosadd[ab.features[i].properties.name] =
+              ab.features[i].properties.address_line2;
+          }
+        })
+        .catch((error) => console.log("error", error));
+    });
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
 
-fetch(apiparam5, requestOptions)
-  .then((response) => response.json())
-  .then(function (result) {
-    ab = result;
-    // console.log(ab);
-    // console.log(ab.features[0].properties);
-    for (let i = 0; i < ab.features.length; i++) {
-      if (i === 0) {
-        document.getElementById("ca1").innerHTML =
-          ab.features[i].properties.name;
-        document.getElementById("ca1").value = ab.features[i].properties.name;
-      }
-      if (i === 1) {
-        document.getElementById("ca2").innerHTML =
-          ab.features[i].properties.name;
-        document.getElementById("ca2").value = ab.features[i].properties.name;
-      }
-      if (i === 2) {
-        document.getElementById("ca3").innerHTML =
-          ab.features[i].properties.name;
-        document.getElementById("ca3").value = ab.features[i].properties.name;
-      }
-      hosadd[ab.features[i].properties.name] =
-        ab.features[i].properties.address_line2;
-    }
-  })
-  .catch((error) => console.log("error", error));
+getLocation();
 
 window.checkvalue1 = function (val) {
   if (val === "other1") {

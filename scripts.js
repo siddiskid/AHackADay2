@@ -154,180 +154,194 @@ document.getElementById("logout").onclick = () => {
 
 var ab = [];
 
-let apiparam1 =
-  "https://api.geoapify.com/v2/places?categories=healthcare.hospital&bias=proximity:77.6667136,12.910592&limit=3&apiKey=6211193b5dfd4c76b3a7889d3fa560d1 ";
-let apiparam2 =
-  "https://api.geoapify.com/v2/places?categories=healthcare.clinic_or_praxis&bias=proximity:77.6667136,12.910592&limit=3&apiKey=6211193b5dfd4c76b3a7889d3fa560d1 ";
-let apiparam3 =
-  "https://api.geoapify.com/v2/places?categories=healthcare.pharmacy&bias=proximity:77.6667136,12.910592&limit=2&apiKey=6211193b5dfd4c76b3a7889d3fa560d1 ";
-let apiparam4 =
-  "https://api.geoapify.com/v2/places?categories=healthcare.clinic_or_praxis.psychiatry&bias=proximity:77.6667136,12.910592&limit=20&apiKey=6211193b5dfd4c76b3a7889d3fa560d1";
-let apiparam5 =
-  "https://api.geoapify.com/v2/places?categories=building.sport&bias=proximity:77.6667136,12.910592&limit=3&apiKey=6211193b5dfd4c76b3a7889d3fa560d1";
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      var latt = position.coords.latitude;
+      var longg = position.coords.longitude;
+      let apiparam1 = `https://api.geoapify.com/v2/places?categories=healthcare.hospital&bias=proximity:${longg},${latt}&limit=3&apiKey=6211193b5dfd4c76b3a7889d3fa560d1`;
+      let apiparam2 = `https://api.geoapify.com/v2/places?categories=healthcare.clinic_or_praxis&bias=proximity:${longg},${latt}&limit=3&apiKey=6211193b5dfd4c76b3a7889d3fa560d1 `;
+      let apiparam3 = `https://api.geoapify.com/v2/places?categories=healthcare.pharmacy&bias=proximity:${longg},${latt}&limit=2&apiKey=6211193b5dfd4c76b3a7889d3fa560d1 `;
+      let apiparam4 = `https://api.geoapify.com/v2/places?categories=healthcare.clinic_or_praxis.psychiatry&bias=proximity:${longg},${latt}&limit=20&apiKey=6211193b5dfd4c76b3a7889d3fa560d1`;
+      let apiparam5 = `https://api.geoapify.com/v2/places?categories=building.sport&bias=proximity:${longg},${latt}&limit=3&apiKey=6211193b5dfd4c76b3a7889d3fa560d1`;
 
-var requestOptions = {
-  method: "GET",
-};
+      var requestOptions = {
+        method: "GET",
+      };
 
-fetch(apiparam1, requestOptions)
-  .then((response) => response.json())
-  .then(function (result) {
-    ab = result;
-    // console.log(ab);
-    // console.log(ab.features[0].properties);
-    for (let i = 0; i < ab.features.length; i++) {
-      var massiveBlock = document.createElement("div");
-      massiveBlock.classList.add("Blocks");
-      var a = document.createElement("div");
-      a.classList.add("first");
-      var add = document.createElement("div");
-      add.classList.add("second");
-      var dist = document.createElement("div");
-      dist.classList.add("secondlast");
-      var app = document.createElement("a");
-      app.classList.add("last");
-      var linktext = document.createTextNode("Book an appointment");
-      a.innerHTML = ab.features[i].properties.name;
-      add.innerHTML = ab.features[i].properties.address_line2;
-      dist.innerHTML = ab.features[i].properties.distance.toString() + "m away";
-      app.appendChild(linktext);
-      app.href = "patient_form.html";
-      massiveBlock.appendChild(a);
-      massiveBlock.appendChild(add);
-      massiveBlock.appendChild(dist);
-      massiveBlock.appendChild(app);
-      document.getElementById("hospitals").appendChild(massiveBlock);
-    }
-  })
-  .catch((error) => console.log("error", error));
+      fetch(apiparam1, requestOptions)
+        .then((response) => response.json())
+        .then(function (result) {
+          ab = result;
+          // console.log(ab);
+          // console.log(ab.features[0].properties);
+          for (let i = 0; i < ab.features.length; i++) {
+            var massiveBlock = document.createElement("div");
+            massiveBlock.classList.add("Blocks");
+            var a = document.createElement("div");
+            a.classList.add("first");
+            var add = document.createElement("div");
+            add.classList.add("second");
+            var dist = document.createElement("div");
+            dist.classList.add("secondlast");
+            var app = document.createElement("a");
+            app.classList.add("last");
+            var linktext = document.createTextNode("Book an appointment");
+            a.innerHTML = ab.features[i].properties.name;
+            add.innerHTML = ab.features[i].properties.address_line2;
+            dist.innerHTML =
+              ab.features[i].properties.distance.toString() + "m away";
+            app.appendChild(linktext);
+            app.href = "patient_form.html";
+            massiveBlock.appendChild(a);
+            massiveBlock.appendChild(add);
+            massiveBlock.appendChild(dist);
+            massiveBlock.appendChild(app);
+            document.getElementById("hospitals").appendChild(massiveBlock);
+          }
+        })
+        .catch((error) => console.log("error", error));
 
-fetch(apiparam2, requestOptions)
-  .then((response) => response.json())
-  .then(function (result) {
-    ab = result;
-    // console.log(ab);
-    // console.log(ab.features[0].properties);
-    for (let i = 0; i < ab.features.length; i++) {
-      var massiveBlock = document.createElement("div");
-      massiveBlock.classList.add("Blocks");
-      var a = document.createElement("div");
-      a.classList.add("first");
-      var add = document.createElement("div");
-      add.classList.add("second");
-      var dist = document.createElement("div");
-      dist.classList.add("secondlast");
-      var app = document.createElement("a");
-      app.classList.add("last");
-      var linktext = document.createTextNode("Book an appointment");
-      a.innerHTML = ab.features[i].properties.name;
-      add.innerHTML = ab.features[i].properties.address_line2;
-      dist.innerHTML = ab.features[i].properties.distance.toString() + "m away";
-      app.appendChild(linktext);
-      app.href = "patient_form.html";
-      massiveBlock.appendChild(a);
-      massiveBlock.appendChild(add);
-      massiveBlock.appendChild(dist);
-      massiveBlock.appendChild(app);
-      document.getElementById("clinics").appendChild(massiveBlock);
-    }
-  })
-  .catch((error) => console.log("error", error));
+      fetch(apiparam2, requestOptions)
+        .then((response) => response.json())
+        .then(function (result) {
+          ab = result;
+          // console.log(ab);
+          // console.log(ab.features[0].properties);
+          for (let i = 0; i < ab.features.length; i++) {
+            var massiveBlock = document.createElement("div");
+            massiveBlock.classList.add("Blocks");
+            var a = document.createElement("div");
+            a.classList.add("first");
+            var add = document.createElement("div");
+            add.classList.add("second");
+            var dist = document.createElement("div");
+            dist.classList.add("secondlast");
+            var app = document.createElement("a");
+            app.classList.add("last");
+            var linktext = document.createTextNode("Book an appointment");
+            a.innerHTML = ab.features[i].properties.name;
+            add.innerHTML = ab.features[i].properties.address_line2;
+            dist.innerHTML =
+              ab.features[i].properties.distance.toString() + "m away";
+            app.appendChild(linktext);
+            app.href = "patient_form.html";
+            massiveBlock.appendChild(a);
+            massiveBlock.appendChild(add);
+            massiveBlock.appendChild(dist);
+            massiveBlock.appendChild(app);
+            document.getElementById("clinics").appendChild(massiveBlock);
+          }
+        })
+        .catch((error) => console.log("error", error));
 
-fetch(apiparam3, requestOptions)
-  .then((response) => response.json())
-  .then(function (result) {
-    ab = result;
-    // console.log(ab);
-    // console.log(ab.features[0].properties);
-    for (let i = 0; i < ab.features.length; i++) {
-      var massiveBlock = document.createElement("div");
-      massiveBlock.classList.add("Blocks");
-      var a = document.createElement("div");
-      a.classList.add("first");
-      var add = document.createElement("div");
-      add.classList.add("second");
-      var dist = document.createElement("div");
-      dist.classList.add("secondlast");
-      // var app = document.createElement("a");
-      // app.classList.add("last");
-      // var linktext = document.createTextNode("Book an appointment");
-      a.innerHTML = ab.features[i].properties.name;
-      add.innerHTML = ab.features[i].properties.address_line2;
-      dist.innerHTML = ab.features[i].properties.distance.toString() + "m away";
-      // app.appendChild(linktext);
-      // app.href = "#";
-      massiveBlock.appendChild(a);
-      massiveBlock.appendChild(add);
-      massiveBlock.appendChild(dist);
-      // massiveBlock.appendChild(app);
-      document.getElementById("pharmacies").appendChild(massiveBlock);
-    }
-  })
-  .catch((error) => console.log("error", error));
+      fetch(apiparam3, requestOptions)
+        .then((response) => response.json())
+        .then(function (result) {
+          ab = result;
+          // console.log(ab);
+          // console.log(ab.features[0].properties);
+          for (let i = 0; i < ab.features.length; i++) {
+            var massiveBlock = document.createElement("div");
+            massiveBlock.classList.add("Blocks");
+            var a = document.createElement("div");
+            a.classList.add("first");
+            var add = document.createElement("div");
+            add.classList.add("second");
+            var dist = document.createElement("div");
+            dist.classList.add("secondlast");
+            // var app = document.createElement("a");
+            // app.classList.add("last");
+            // var linktext = document.createTextNode("Book an appointment");
+            a.innerHTML = ab.features[i].properties.name;
+            add.innerHTML = ab.features[i].properties.address_line2;
+            dist.innerHTML =
+              ab.features[i].properties.distance.toString() + "m away";
+            // app.appendChild(linktext);
+            // app.href = "#";
+            massiveBlock.appendChild(a);
+            massiveBlock.appendChild(add);
+            massiveBlock.appendChild(dist);
+            // massiveBlock.appendChild(app);
+            document.getElementById("pharmacies").appendChild(massiveBlock);
+          }
+        })
+        .catch((error) => console.log("error", error));
 
-fetch(apiparam4, requestOptions)
-  .then((response) => response.json())
-  .then(function (result) {
-    ab = result;
-    // console.log(ab);
-    // console.log(ab.features[0].properties);
-    for (let i = 0; i < ab.features.length; i++) {
-      var massiveBlock = document.createElement("div");
-      massiveBlock.classList.add("Blocks");
-      var a = document.createElement("div");
-      a.classList.add("first");
-      var add = document.createElement("div");
-      add.classList.add("second");
-      var dist = document.createElement("div");
-      dist.classList.add("secondlast");
-      var app = document.createElement("a");
-      app.classList.add("last");
-      var linktext = document.createTextNode("Book an appointment");
-      a.innerHTML = ab.features[i].properties.name;
-      add.innerHTML = ab.features[i].properties.address_line2;
-      dist.innerHTML = ab.features[i].properties.distance.toString() + "m away";
-      app.appendChild(linktext);
-      app.href = "patient_form.html";
-      massiveBlock.appendChild(a);
-      massiveBlock.appendChild(add);
-      massiveBlock.appendChild(dist);
-      massiveBlock.appendChild(app);
-      document.getElementById("psycs").appendChild(massiveBlock);
-    }
-  })
-  .catch((error) => console.log("error", error));
+      fetch(apiparam4, requestOptions)
+        .then((response) => response.json())
+        .then(function (result) {
+          ab = result;
+          // console.log(ab);
+          // console.log(ab.features[0].properties);
+          for (let i = 0; i < ab.features.length; i++) {
+            var massiveBlock = document.createElement("div");
+            massiveBlock.classList.add("Blocks");
+            var a = document.createElement("div");
+            a.classList.add("first");
+            var add = document.createElement("div");
+            add.classList.add("second");
+            var dist = document.createElement("div");
+            dist.classList.add("secondlast");
+            var app = document.createElement("a");
+            app.classList.add("last");
+            var linktext = document.createTextNode("Book an appointment");
+            a.innerHTML = ab.features[i].properties.name;
+            add.innerHTML = ab.features[i].properties.address_line2;
+            dist.innerHTML =
+              ab.features[i].properties.distance.toString() + "m away";
+            app.appendChild(linktext);
+            app.href = "patient_form.html";
+            massiveBlock.appendChild(a);
+            massiveBlock.appendChild(add);
+            massiveBlock.appendChild(dist);
+            massiveBlock.appendChild(app);
+            document.getElementById("psycs").appendChild(massiveBlock);
+          }
+        })
+        .catch((error) => console.log("error", error));
 
-fetch(apiparam5, requestOptions)
-  .then((response) => response.json())
-  .then(function (result) {
-    ab = result;
-    // console.log(ab);
-    // console.log(ab.features[0].properties);
-    for (let i = 0; i < ab.features.length; i++) {
-      var massiveBlock = document.createElement("div");
-      massiveBlock.classList.add("Blocks");
-      var a = document.createElement("div");
-      a.classList.add("first");
-      var add = document.createElement("div");
-      add.classList.add("second");
-      var dist = document.createElement("div");
-      dist.classList.add("secondlast");
-      var app = document.createElement("a");
-      app.classList.add("last");
-      var linktext = document.createTextNode("Book an appointment");
-      a.innerHTML = ab.features[i].properties.name;
-      add.innerHTML = ab.features[i].properties.address_line2;
-      dist.innerHTML = ab.features[i].properties.distance.toString() + "m away";
-      app.appendChild(linktext);
-      app.href = "patient_form.html";
-      massiveBlock.appendChild(a);
-      massiveBlock.appendChild(add);
-      massiveBlock.appendChild(dist);
-      massiveBlock.appendChild(app);
-      document.getElementById("fitness").appendChild(massiveBlock);
-    }
-  })
-  .catch((error) => console.log("error", error));
+      fetch(apiparam5, requestOptions)
+        .then((response) => response.json())
+        .then(function (result) {
+          ab = result;
+          // console.log(ab);
+          // console.log(ab.features[0].properties);
+          for (let i = 0; i < ab.features.length; i++) {
+            if (ab.features[i].properties.name !== "undefined") {
+              var massiveBlock = document.createElement("div");
+              massiveBlock.classList.add("Blocks");
+              var a = document.createElement("div");
+              a.classList.add("first");
+              var add = document.createElement("div");
+              add.classList.add("second");
+              var dist = document.createElement("div");
+              dist.classList.add("secondlast");
+              var app = document.createElement("a");
+              app.classList.add("last");
+              var linktext = document.createTextNode("Book an appointment");
+              a.innerHTML = ab.features[i].properties.name;
+              add.innerHTML = ab.features[i].properties.address_line2;
+              dist.innerHTML =
+                ab.features[i].properties.distance.toString() + "m away";
+              app.appendChild(linktext);
+              app.href = "patient_form.html";
+              massiveBlock.appendChild(a);
+              massiveBlock.appendChild(add);
+              massiveBlock.appendChild(dist);
+              massiveBlock.appendChild(app);
+              document.getElementById("fitness").appendChild(massiveBlock);
+            }
+          }
+        })
+        .catch((error) => console.log("error", error));
+    });
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+getLocation();
 
 document.getElementById("showapp").onclick = () => {
   if (document.getElementById("appointments").style.display === "flex") {
